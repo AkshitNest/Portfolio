@@ -1,4 +1,5 @@
 import {
+  Github,
   Instagram,
   Linkedin,
   Mail,
@@ -11,6 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import emailjs from "emailjs-com";
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -21,14 +23,33 @@ export const ContactSection = () => {
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-      setIsSubmitting(false);
-    }, 1500);
-  };
+      emailjs
+    .sendForm(
+      "service_ra1k0ti",     
+      "template_ox9637b",    // replace this
+      e.target,
+      "GIr4lkvJ9njs84Zv8"      // replace this
+    )
+    .then(
+      (result) => {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out. I’ll reply soon.",
+        });
+        e.target.reset(); 
+        setIsSubmitting(false);
+      },
+      (error) => {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Try again later.",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+      }
+    );
+};
+  
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
@@ -59,7 +80,7 @@ export const ContactSection = () => {
                     href="mailto:hello@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    hello@gmail.com
+                    sharmaakshit495@gmail.com
                   </a>
                 </div>
               </div>
@@ -70,10 +91,10 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium"> Phone</h4>
                   <a
-                    href="tel:+11234567890"
+                    href="tel:+91-8619444155"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +1 (123) 456-7890
+                    +91-8619444155
                   </a>
                 </div>
               </div>
@@ -84,7 +105,7 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium"> Location</h4>
                   <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Vancouver, BC, Canada
+                    India
                   </a>
                 </div>
               </div>
@@ -93,18 +114,17 @@ export const ContactSection = () => {
             <div className="pt-8">
               <h4 className="font-medium mb-4"> Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
-                <a href="#" target="_blank">
+                <a href="https://www.linkedin.com/in/sharmaakshit07/" target="https://www.linkedin.com/in/sharmaakshit07/">
                   <Linkedin />
                 </a>
-                <a href="#" target="_blank">
+                <a href="https://x.com/sharma_akshit07" target="https://x.com/sharma_akshit07">
                   <Twitter />
                 </a>
-                <a href="#" target="_blank">
-                  <Instagram />
+                <a href="https://github.com/AkshitNest" target="_blank">
+                  <Github />
                 </a>
-                <a href="#" target="_blank">
-                  <Twitch />
-                </a>
+                
+                
               </div>
             </div>
           </div>
@@ -130,7 +150,7 @@ export const ContactSection = () => {
                   name="name"
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="Pedro Machado..."
+                  placeholder="Name"
                 />
               </div>
 
@@ -148,7 +168,7 @@ export const ContactSection = () => {
                   name="email"
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="john@gmail.com"
+                  placeholder="xyz@gmail.com"
                 />
               </div>
 
