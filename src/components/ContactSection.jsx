@@ -14,41 +14,41 @@ import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import emailjs from "emailjs-com";
 
-// export const ContactSection = () => {
-//   const { toast } = useToast();
-//   const [isSubmitting, setIsSubmitting] = useState(false);
+export const ContactSection = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-//     setIsSubmitting(true);
+    setIsSubmitting(true);
 
-//       emailjs
-//     .sendForm(
-//       "service_ra1k0ti",     
-//       "template_ox9637b",    // replace this
-//       e.target,
-//       "GIr4lkvJ9njs84Zv8"      // replace this
-//     )
-//     .then(
-//       (result) => {
-//         toast({
-//           title: "Message Sent!",
-//           description: "Thank you for reaching out. I’ll reply soon.",
-//         });
-//         e.target.reset(); 
-//         setIsSubmitting(false);
-//       },
-//       (error) => {
-//         toast({
-//           title: "Error",
-//           description: "Failed to send message. Try again later.",
-//           variant: "destructive",
-//         });
-//         setIsSubmitting(false);
-//       }
-//     );
-// };
+      emailjs
+    .sendForm(
+      "service_ra1k0ti",     
+      "template_ox9637b",    // replace this
+      e.target,
+      "GIr4lkvJ9njs84Zv8"      // replace this
+    )
+    .then(
+      (result) => {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out. I’ll reply soon.",
+        });
+        e.target.reset(); 
+        setIsSubmitting(false);
+      },
+      (error) => {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Try again later.",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+      }
+    );
+};
   
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
@@ -80,7 +80,7 @@ import emailjs from "emailjs-com";
                     href="mailto:hello@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    sharmaakshit495@gmail.com
+                    XYZ@gmail.com
                   </a>
                 </div>
               </div>
@@ -91,10 +91,10 @@ import emailjs from "emailjs-com";
                 <div>
                   <h4 className="font-medium"> Phone</h4>
                   <a
-                    href="tel:+91-8619444155"
+                    href="tel:+91-8619444XXX"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +91-8619444155
+                    +91-8619444XXX
                   </a>
                 </div>
               </div>
